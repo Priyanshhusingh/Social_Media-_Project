@@ -2,7 +2,7 @@ import React from 'react'
 
 function RightBar() {
   return (
-    <div>RightBar</div>
+    <div className='flex-[3]'>RightBar</div>
   )
 }
 

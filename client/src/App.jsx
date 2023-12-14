@@ -22,7 +22,9 @@ function App() {
         <Navbar />
         <div className="flex">
           <LeftBar />
-          <Outlet />
+          <div className="flex-[6]">
+            <Outlet />
+          </div>
           <RightBar />
         </div>
       </div>

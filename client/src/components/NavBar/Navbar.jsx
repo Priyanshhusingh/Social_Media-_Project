@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <div className="flex items-center justify-between px-3 h-[50px] border border-b-gray-300">
+    <div className="flex items-center justify-between px-3 h-[50px] border border-b-gray-300 bg-white sticky top-0">
       <div className="flex items-center gap-[15px] lg:gap-[30px]">
         <Link to={"/"}>
           <span className="font-bold text-[20px] text-blue-700">social</span>
