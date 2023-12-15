@@ -2,7 +2,7 @@ import React from "react";
 
 function Home() {
   return (
-    <div>
+    <div className="dark:bg-[#333] dark:text-white">
       <div>Home</div>
       <div>Home</div>
       <div>Home</div>

@@ -18,7 +18,7 @@ function App() {
   };
   const Layout = () => {
     return (
-      <div>
+      <div className="dark:bg-[#222] dark:text-white">
         <Navbar />
         <div className="flex">
           <LeftBar />

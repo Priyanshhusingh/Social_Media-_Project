@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import NightlightOutlinedIcon from "@mui/icons-material/NightlightOutlined";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
@@ -9,23 +9,32 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Link } from "react-router-dom";
+import { DarkModeContext } from "../../context/DarkModeContext";
 
 function Navbar() {
+  const { toggleDarkMode, darkMode } = useContext(DarkModeContext);
+
   return (
-    <div className="flex items-center justify-between px-3 h-[50px] border border-b-gray-300 bg-white sticky top-0">
+    <div className="flex items-center justify-between px-3 h-[50px] border border-b-gray-300 bg-white dark:bg-[#222] sticky top-0 dark:text-white">
       <div className="flex items-center gap-[15px] lg:gap-[30px]">
         <Link to={"/"}>
-          <span className="font-bold text-[20px] text-blue-700">social</span>
+          <span className="font-bold text-[20px] dark:text-white text-blue-700">
+            social
+          </span>
         </Link>
         <HomeOutlinedIcon />
-        <DarkModeOutlinedIcon />
+        {darkMode ? (
+          <WbSunnyOutlinedIcon onClick={toggleDarkMode} />
+        ) : (
+          <NightlightOutlinedIcon onClick={toggleDarkMode} />
+        )}
         <GridViewOutlinedIcon />
         <div className="flex items-center gap-2 border border-gray-300 rounded-md p-1">
           <SearchOutlinedIcon />
           <input
             type="text"
             placeholder="search..."
-            className="border border-none lg:w-[500px]"
+            className="border dark:bg-transparent outline-none border-none lg:w-[500px]"
           />
         </div>
       </div>

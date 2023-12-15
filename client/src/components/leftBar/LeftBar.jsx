@@ -2,7 +2,7 @@ import React from "react";
 
 function LeftBar() {
   return (
-    <div className="flex-[2] sticky top-[70px] h-[calc(100vh-70px)]">
+    <div className="flex-[2] sticky top-[70px] h-[calc(100vh-70px)] overflow-scroll scroll-hidden">
       <div className="p-5">
         <div className="flex flex-col gap-5">
           <div className="flex items-center gap-2 font-semibold">
