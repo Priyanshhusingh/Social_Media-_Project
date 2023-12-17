@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../../context/authcontext";
 
 function Login() {
+  const { login } = useContext(AuthContext);
+  const handleLogin = () => {
+    login();
+  };
   return (
     <div className="h-screen bg-[rgb(170,166,233)] flex items-center justify-center">
       <div className="flex bg-white w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] rounded-lg overflow-hidden">
@@ -35,7 +40,10 @@ function Login() {
               placeholder="Password"
               className="border border-none border-b border-[lightgray] py-2 px-3 sm:px-4 md:px-5 lg:px-6"
             />
-            <button className="w-full p-3 border-none bg-purple-500 text-white font-bold cursor-pointer">
+            <button
+              className="w-full p-3 border-none bg-purple-500 text-white font-bold cursor-pointer"
+              onClick={handleLogin}
+            >
               Login
             </button>
           </form>

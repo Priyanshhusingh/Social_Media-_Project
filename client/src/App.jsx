@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
@@ -7,9 +7,10 @@ import LeftBar from "./components/leftBar/LeftBar";
 import RightBar from "./components/rightBar/RightBar";
 import Home from "./pages/Home/Home";
 import UserProfile from "./pages/Userprofile/UserProfile";
+import { AuthContext } from "./context/authcontext";
 
 function App() {
-  const currentuser = true;
+  const { currentuser } = useContext(AuthContext);
   const ProtectRoute = ({ children }) => {
     if (!currentuser) {
       return <Navigate to="/login" />;
@@ -52,3 +53,4 @@ function App() {
 }
 
 export default App;
+//1:25:00

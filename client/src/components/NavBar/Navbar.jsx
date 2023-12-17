@@ -10,10 +10,11 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/DarkModeContext";
+import { AuthContext } from "../../context/authcontext";
 
 function Navbar() {
   const { toggleDarkMode, darkMode } = useContext(DarkModeContext);
-
+  const { currentuser } = useContext(AuthContext);
   return (
     <div className="flex items-center justify-between px-3 h-[50px] border border-b-gray-300 bg-white dark:bg-[#222] sticky top-0 dark:text-white">
       <div className="flex items-center gap-[15px] lg:gap-[30px]">
@@ -24,9 +25,15 @@ function Navbar() {
         </Link>
         <HomeOutlinedIcon />
         {darkMode ? (
-          <WbSunnyOutlinedIcon onClick={toggleDarkMode} />
+          <WbSunnyOutlinedIcon
+            onClick={toggleDarkMode}
+            className="cursor-pointer"
+          />
         ) : (
-          <NightlightOutlinedIcon onClick={toggleDarkMode} />
+          <NightlightOutlinedIcon
+            onClick={toggleDarkMode}
+            className="cursor-pointer"
+          />
         )}
         <GridViewOutlinedIcon />
         <div className="flex items-center gap-2 border border-gray-300 rounded-md p-1">
@@ -44,11 +51,11 @@ function Navbar() {
         <NotificationsNoneOutlinedIcon />
         <div className="flex items-center gap-2 font-semibold">
           <img
-            src="https://th.bing.com/th?id=ORMS.f7e30e96e5d14c77c40a986b26c9afd4&pid=Wdp&w=612&h=304&qlt=90&c=1&rs=1&dpr=1.25&p=0"
+            src={currentuser?.profilePic}
             alt=""
             className="w-[30px] h-[30px] object-cover rounded-3xl"
           />
-          <span>John Joe</span>
+          <span>{currentuser.name}</span>
         </div>
       </div>
     </div>

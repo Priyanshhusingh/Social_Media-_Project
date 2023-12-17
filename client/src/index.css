@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.scroll-hidden {
-  &::-webkit-scrollbar {
+@layer utilities {
+  .scroll-hidden::-webkit-scrollbar {
     display: none;
   }
 }
+
