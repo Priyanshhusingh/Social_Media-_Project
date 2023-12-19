@@ -16,8 +16,8 @@ function Navbar() {
   const { toggleDarkMode, darkMode } = useContext(DarkModeContext);
   const { currentuser } = useContext(AuthContext);
   return (
-    <div className="flex items-center justify-between px-3 h-[50px] border border-b-gray-300 bg-white dark:bg-[#222] sticky top-0 dark:text-white">
-      <div className="flex items-center gap-[15px] lg:gap-[30px]">
+    <div className="flex items-center justify-between px-3 h-[50px] border border-b-gray-300 bg-white dark:bg-[#222] sticky top-0 dark:text-white z-[999]">
+      <div className="flex items-center gap-[15px] lg:gap-[30px] ">
         <Link to={"/"}>
           <span className="font-bold text-[20px] dark:text-white text-blue-700">
             social
