@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import TextsmsOutlinedIcon from "@mui/icons-material/TextsmsOutlined";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import Comments from "../coments/Comments";
 
 function Posts({ post }) {
   const liked = false;
+  const [commentOpen, setcommentOPen] = useState(false);
   return (
     <div className="shadow-lg shadow-gray-400 dark:shadow-gray-900 rounded-lg">
       <div className="p-5">
@@ -41,7 +43,10 @@ function Posts({ post }) {
             {liked ? <FavoriteOutlinedIcon /> : <FavoriteBorderOutlinedIcon />}
             12 Likes
           </div>
-          <div className="flex items-center gap-3 cursor-pointer text-sm">
+          <div
+            className="flex items-center gap-3 cursor-pointer text-sm"
+            onClick={() => setcommentOPen(!commentOpen)}
+          >
             <TextsmsOutlinedIcon />
             12 Comments
           </div>
@@ -50,6 +55,7 @@ function Posts({ post }) {
             Share
           </div>
         </div>
+        {commentOpen && <Comments />}
       </div>
     </div>
   );

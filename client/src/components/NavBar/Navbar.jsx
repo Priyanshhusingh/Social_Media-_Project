@@ -41,7 +41,7 @@ function Navbar() {
           <input
             type="text"
             placeholder="search..."
-            className="border dark:bg-transparent outline-none border-none lg:w-[500px]"
+            className="border hidden md:block dark:bg-transparent outline-none border-none lg:w-[500px] absolute top-16 w-[300px] p-2 rounded-2xl bg-black text-white md:static md:bg-transparent md:text-inherit md:rounded-none md:top-0 md:p-0 "
           />
         </div>
       </div>

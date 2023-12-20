@@ -2,7 +2,7 @@ import React from "react";
 
 function RightBar() {
   return (
-    <div className="flex-[3] sticky top-[70px] h-[calc(100vh-70px)] overflow-scroll scroll-hidden">
+    <div className="flex-[3] sticky top-[70px] h-[calc(100vh-70px)] overflow-scroll scroll-hidden hidden md:block">
       <div>
         <div className="p-5">
           <div className="shadow-xl rounded-sm overflow-auto scroll-hidden p-5">
