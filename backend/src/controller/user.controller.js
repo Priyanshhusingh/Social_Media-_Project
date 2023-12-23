@@ -48,7 +48,7 @@ exports.loginUser = asyncHandler(async (req, res) => {
   if (!username) {
     throw new ApiError(400, "Username is requiured");
   }
-  const user = await User.findOne({username});
+  const user = await User.findOne({ username });
   if (!user) {
     throw new ApiError(404, "user does not exist");
   }
@@ -75,6 +75,26 @@ exports.loginUser = asyncHandler(async (req, res) => {
         "User logged Successfully"
       )
     );
+});
+
+exports.logOutuser = asyncHandler(async (req, res) => {
+  await User.findByIdAndUpdate(
+    req.UserDoc._id,
+    {
+      $set: {
+        refreshToken: undefined,
+      },
+    },
+    { new: true }
+  );
+  const option = {
+    httpOnly: true,
+    secure: true,
+  };
+  return res
+    .status(200)
+    .clearCookie("accessToken", option)
+    .clearCookie("refreshToken", option).json(new ApiResponse(200, {}, "User Logout Successfully"));
 });
 
 exports.getUser = asyncHandler((req, res) => {
