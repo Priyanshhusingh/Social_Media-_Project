@@ -55,7 +55,7 @@ function Navbar() {
             alt=""
             className="w-[30px] h-[30px] object-cover rounded-3xl"
           />
-          <span>{currentuser.name}</span>
+          <span>{currentuser.data.user.username}</span>
         </div>
       </div>
     </div>
